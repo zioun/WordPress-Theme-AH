@@ -1,0 +1,94 @@
+/* common css */
+img{
+    max-width: 100%;
+}
+
+
+/* header area */
+/*Sub Dropdown Menu*/
+#nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#nav li {
+  position: relative;
+}
+
+#nav li a {
+  text-decoration: none;
+  color: #111;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 14px;
+  display: block;
+  transition: 0.3s ease;
+}
+
+#nav li a:hover {
+  color: #0d6efd;
+}
+
+/* Dropdown Menu */
+#nav li ul {
+  list-style: none;
+  position: absolute;
+  top: 100%; /* ঠিক নিচে থাকবে */
+  left: 0;
+  min-width: 200px;
+  background: #fff;
+  padding: 8px 0;
+  margin: 0;
+  border-radius: 8px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: 0.25s ease;
+  z-index: 999;
+}
+
+/* Hover করলে show হবে */
+#nav li:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+
+/* Dropdown Item */
+#nav li ul li a {
+  padding: 10px 15px;
+  color: #222;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+#nav li ul li a:hover {
+  background: #f2f2f2;
+  color: #0d6efd;
+  border-radius: 5px;
+}
+
+/* Sub Dropdown */
+#nav li ul li ul {
+  top: 0;
+  left: 100%;
+  margin-left: 0px; /* gap remove করা হলো */
+  transform: translateX(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.25s ease;
+}
+
+/* Hover করলে Sub Dropdown show হবে */
+#nav li ul li:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0px);
+}
