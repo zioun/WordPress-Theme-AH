@@ -22,9 +22,17 @@ function csm_css_js_file_callign (){
 add_action( 'wp_enqueue_scripts', 'csm_css_js_file_callign' );
 
 
+// Google fonts enqueue
+function ali_add_google_fonts(){
+    wp_enqueue_style('ali_google_fonts', 'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap', false);
+
+}
+add_action('wp_enqueue_scripts', 'ali_add_google_fonts');
+
 
 // theme function
 function ali_customizar_register($wp_customize){
+    // header area function
     $wp_customize -> add_section('ali_header_area', array(
         'title' =>__('Header Area', 'alihossain'),
         'description' => 'If you interested to update your header area, you can do it here.'
@@ -37,5 +45,30 @@ function ali_customizar_register($wp_customize){
         'setting' => 'ali_logo',
         'section' => 'ali_header_area',
     )));
+
+    // menu position option
+    // $wp_customize -> add_section('ali_menu_option', array(
+    //     'title' => _('Menu Position Option', 'alihossain'),
+    //     'description' => 'If you interested to change your menu position you can do it.'
+
+    // ));
+    // $wp_customize -> add_settings('ali_menu_position', array(
+    //     'default' => 'right_menu',
+    // ));
+    // $wp_customize -> add_control('ali_menu_position', array(
+    //     'label' => 'Menu Position',
+    //     'description' => "Select your menu position",
+    //     'setting' => 'ali_menu_position',
+    //     'section' => 'ali_menu_option',
+    //     'type' => 'radio',
+    //     'choices' => array(
+    //         'left_menu' => 'Left Menu',
+    //         'center_menu' => 'Center Menu',
+    //         'right_menu' => 'Right Menu',
+    //     ) ,
+    // ));
 }
 add_action('customize_register', 'ali_customizar_register');
+
+// Menu Register
+register_nav_menu('primary_menu', __('Main Menu', 'alihossain'));
